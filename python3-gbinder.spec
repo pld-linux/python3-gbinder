@@ -13,6 +13,7 @@ URL:		https://github.com/erfanoabdi/gbinder-python
 BuildRequires:	libgbinder-devel
 BuildRequires:	libglibutil-devel
 BuildRequires:	pkgconfig
+BuildRequires:	python3-Cython
 BuildRequires:	python3-devel >= 1:3.2
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
