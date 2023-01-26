@@ -1,12 +1,12 @@
 %define		module	gbinder
-Summary:	-
-Summary(pl.UTF-8):	-
-# Name must match the python module/package name (as on pypi or in 'import' statement)
+Summary:	Cython extension module for C++ gbinder functions
+Summary(pl.UTF-8):	Moduł rozszerzenia Cythona do funkcji C++ biblioteki gbinder
 Name:		python3-%{module}
 Version:	1.1.1
-Release:	0.1
-License:	- (enter GPL/GPL v2/GPL v3/LGPL/BSD/BSD-like/other license name here)
+Release:	1
+License:	GPL v3
 Group:		Libraries/Python
+#Source0Download: https://github.com/erfanoabdi/gbinder-python/tags/
 Source0:	https://github.com/erfanoabdi/gbinder-python/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	47e15c2768963a5184a489ae2d073116
 URL:		https://github.com/erfanoabdi/gbinder-python
@@ -22,12 +22,13 @@ Requires:	python3-modules >= 1:3.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
+Cython extension module for C++ gbinder functions.
+
+%description -l pl.UTF-8
+Moduł rozszerzenia Cythona do funkcji C++ biblioteki gbinder.
 
 %prep
 %setup -q -n %{module}-python-%{version}
-
-# fix #!/usr/bin/env python -> #!/usr/bin/python:
-#%{__sed} -i -e '1s,^#!.*python3,#!%{__python3},' %{name}.py
 
 %build
 %py3_build build_ext --cython
@@ -43,5 +44,5 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.md
-%attr(755,root,root) %{py3_sitedir}/%{module}.*.so
+%attr(755,root,root) %{py3_sitedir}/gbinder.cpython-*.so
 %{py3_sitedir}/gbinder_python-%{version}-py*.egg-info
