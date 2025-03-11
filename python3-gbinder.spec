@@ -3,7 +3,7 @@ Summary:	Cython extension module for C++ gbinder functions
 Summary(pl.UTF-8):	Moduł rozszerzenia Cythona do funkcji C++ biblioteki gbinder
 Name:		python3-%{module}
 Version:	1.1.1
-Release:	2
+Release:	3
 License:	GPL v3
 Group:		Libraries/Python
 #Source0Download: https://github.com/erfanoabdi/gbinder-python/tags/
