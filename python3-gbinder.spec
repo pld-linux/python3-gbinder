@@ -2,14 +2,14 @@
 Summary:	Cython extension module for C++ gbinder functions
 Summary(pl.UTF-8):	Moduł rozszerzenia Cythona do funkcji C++ biblioteki gbinder
 Name:		python3-%{module}
-Version:	1.1.1
-Release:	3
+Version:	1.2.1
+Release:	1
 License:	GPL v3
 Group:		Libraries/Python
-#Source0Download: https://github.com/erfanoabdi/gbinder-python/tags/
-Source0:	https://github.com/erfanoabdi/gbinder-python/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	47e15c2768963a5184a489ae2d073116
-URL:		https://github.com/erfanoabdi/gbinder-python
+#Source0Download: https://pypi.org/simple/gbinder/
+Source0:	https://files.pythonhosted.org/packages/source/g/gbinder/%{module}-%{version}.tar.gz
+# Source0-md5:	5e7576075821dd2ca3b153002528ffb8
+URL:		https://github.com/Kyle6012/gbinder
 BuildRequires:	libgbinder-devel
 BuildRequires:	libglibutil-devel
 BuildRequires:	pkgconfig
@@ -28,10 +28,10 @@ Cython extension module for C++ gbinder functions.
 Moduł rozszerzenia Cythona do funkcji C++ biblioteki gbinder.
 
 %prep
-%setup -q -n %{module}-python-%{version}
+%setup -q -n %{module}-%{version}
 
 %build
-%py3_build build_ext --cython
+%py3_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -45,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.md
 %attr(755,root,root) %{py3_sitedir}/gbinder.cpython-*.so
-%{py3_sitedir}/gbinder_python-%{version}-py*.egg-info
+%{py3_sitedir}/gbinder-%{version}-py*.egg-info
